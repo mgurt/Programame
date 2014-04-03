@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Programame</string>
+    <string name="action_settings">Settings</string>
+    <string name="tvNom">Nom</string>
+    <string name="tvCognoms">Cognom/s</string>
+    <string name="btnRegistrarVisita">Registrar Visita</string>
+    <string name="registre_activity_title">Registre de Visites</string>
+    <string name="valoracio_activity_title">Valoració d\'usuari</string>
+    <string name="title_activity_llista_de_videos">Videos Programame</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_video">VideoActivity</string>
+    <string name="title_activity_menu_iconic">MenuIconic</string>
+
+</resources>
