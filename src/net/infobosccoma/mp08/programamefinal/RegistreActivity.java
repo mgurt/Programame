@@ -11,22 +11,24 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class RegistreActivity extends Activity {
+public class RegistreActivity extends Activity implements OnClickListener{
 
 	static final int FOTO_CODE = 100;
 	private EditText edNom;
 	private EditText edCognoms;
 	private ImageView imgLlibretaDireccions;
 	private Usuari usuariVisita;
+	private Button botoRegistra;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,29 +53,21 @@ public class RegistreActivity extends Activity {
 		edNom = (EditText) findViewById(R.id.etNom);
 		edCognoms = (EditText) findViewById(R.id.etCognoms);
 		imgLlibretaDireccions = (ImageView) findViewById(R.id.imgLlibretaDireccions);
+		botoRegistra = (Button) findViewById(R.id.btnGuardar);
+		botoRegistra.setOnClickListener(this);
 		// Orientació vertical
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.registre, menu);
-		return true;
-	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if(item.getItemId() == R.id.informacio_app){ 
-			startActivity(new Intent(this, ValoracioActivity.class));
-		}
-		return true;
-	}
 
 	/**
 	 * Gestionar el clic del botó al finalitzar el registre
-	 * @param view
 	 */
-	public void iniciarMenuIconic(View view) {
+	
+	
+	
+	
+	public void iniciarMenuIconic() {
 		String nom = edNom.getText().toString();
 		String cognoms = edCognoms.getText().toString();
 
@@ -84,6 +78,8 @@ public class RegistreActivity extends Activity {
 						.getConstantState()
 						.equals(imgLlibretaDireccions.getDrawable()
 								.getConstantState())) {
+			Bitmap foto = imgLlibretaDireccions.getDrawingCache();
+			usuariVisita = new Usuari(nom,cognoms,foto);
 			
 			iniciarMenu();
 		} else {
@@ -146,6 +142,12 @@ public class RegistreActivity extends Activity {
 		List<ResolveInfo> list = packageManager.queryIntentActivities(intent,
 				PackageManager.MATCH_DEFAULT_ONLY);
 		return list.size() > 0;
+	}
+
+	@Override
+	public void onClick(View v) {
+		iniciarMenuIconic();
+		
 	}
 	
 	
