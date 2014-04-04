@@ -32,12 +32,12 @@
         </activity>
         <activity
             android:name="net.infobosccoma.mp08.programamefinal.ValoracioActivity"
-            android:label="@string/title_activity_menu_iconic"
+            android:label="@string/valoracio_activity_title"
             android:parentActivityName="net.infobosccoma.mp08.programamefinal.MenuIconic" >
         </activity>
         <activity
             android:name="net.infobosccoma.mp08.programamefinal.LlistaDeVideosActivity"
-            android:label="@string/title_activity_menu_iconic"
+            android:label="@string/title_activity_llista_de_videos"
             android:parentActivityName="net.infobosccoma.mp08.programamefinal.MenuIconic" >
         </activity>
         <activity
@@ -47,6 +47,12 @@
         </activity>
         <activity
             android:name="net.infobosccoma.mp08.programamefinal.EscoltarValoracionsActivity"
+            android:parentActivityName="net.infobosccoma.mp08.programamefinal.MenuIconic"
+            android:label="@string/title_activity_escoltar_valoracions" >
+        </activity>
+        <activity
+            android:name="net.infobosccoma.mp08.programamefinal.ArticleActivity"
+            android:parentActivityName="net.infobosccoma.mp08.programamefinal.MenuIconic"
             android:label="@string/app_name" >
         </activity>
     </application>

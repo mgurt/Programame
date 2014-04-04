@@ -1,26 +1,36 @@
 package net.infobosccoma.mp08.programamefinal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 
-public class MenuIconic extends Activity {
+public class MenuIconic extends Activity implements OnClickListener {
 
 	// l'objecte amb el qual es fa la reproducci� del fitxer
 	private MediaPlayer mediaPlayer;
 	private boolean volum;
+	private ImageButton btnArticle, btnVideo, btnValor, btnVeuVar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_iconic);
 		
-		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
-		
+		btnArticle = (ImageButton) findViewById(R.id.imgArticle);
+		btnArticle.setOnClickListener(this);
+		btnVideo = (ImageButton) findViewById(R.id.imgVideo);
+		btnVideo.setOnClickListener(this);
+		btnValor = (ImageButton) findViewById(R.id.imgValor);
+		btnValor.setOnClickListener(this);
+		btnVeuVar = (ImageButton) findViewById(R.id.imgVeuVar);
+		btnVeuVar.setOnClickListener(this);
+
 		encendreSo();
 		volum = true;
 	}
@@ -31,11 +41,11 @@ public class MenuIconic extends Activity {
 		getMenuInflater().inflate(R.menu.menu_iconic, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if(item.getItemId() == R.id.menu_item_volum){
-			if(volum){
+		if (item.getItemId() == R.id.menu_item_volum) {
+			if (volum) {
 				item.setIcon(android.R.drawable.ic_lock_silent_mode_off);
 				volum = false;
 				aturarSo();
@@ -47,12 +57,11 @@ public class MenuIconic extends Activity {
 		}
 		return true;
 	}
-	
 
 	private void encendreSo() {
-		mediaPlayer = MediaPlayer.create(this, R.raw.overthere_stair);
+		mediaPlayer = MediaPlayer.create(this, R.raw.elevatorar);
 		mediaPlayer.start();
-		mediaPlayer.setLooping(true);		
+		mediaPlayer.setLooping(true);
 	}
 
 	private void aturarSo() {
@@ -67,6 +76,44 @@ public class MenuIconic extends Activity {
 		if (mediaPlayer != null) {
 			mediaPlayer.release();
 		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+
+		case (R.id.imgArticle):
+			startActivity(new Intent(this,ArticleActivity.class));
+			break;
+		case (R.id.imgVideo):
+			if (volum) {
+				volum = false;
+				aturarSo();
+			}
+			startActivity(new Intent(this, LlistaDeVideosActivity.class));
+			break;
+		case (R.id.imgValor):
+			if (volum) {
+				volum = false;
+				aturarSo();
+			}
+			startActivity(new Intent(this, ValoracioActivity.class));
+			break;
+		case (R.id.imgVeuVar):
+			startActivity(new Intent(this,EscoltarValoracionsActivity.class));
+			break;
+		default:
+			break;
+
+		}
+
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		volum = true;
+		encendreSo();
 	}
 
 }

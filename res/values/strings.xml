@@ -9,8 +9,21 @@
     <string name="registre_activity_title">Registre de Visites</string>
     <string name="valoracio_activity_title">Valoració d\'usuari</string>
     <string name="title_activity_llista_de_videos">Videos Programame</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_video">VideoActivity</string>
-    <string name="title_activity_menu_iconic">MenuIconic</string>
+    <string name="title_activity_video">Vídeos Programame</string>
+    <string name="title_activity_menu_iconic">Menú principal</string>
+    <string name="title_activity_escoltar_valoracions">Escoltar valoracions</string>
+    <string name="Article">Article</string>
+    <string name="llistaVideos">Llista de videos</string>
+    <string name="valorar">Valora l\'apliació</string>
+    <string name="veureValoracions">Escoltar valoracions</string>
+    <string name="title_activity_article">ArticleActivity</string>
+    <string name="programametitol">Qué és Programa-me?</string>
+    <string name="programame_paragraf1">ProgramaMe és el concurs espanyol de programació per a alumnes matriculats a Cicles Formatius. No s\'estableixen diferéncies entre els cicles, pel que es permet la participació a qualsevol alumne que cursi Formació Professional, sempre i quant aquesta sigui de la família de l\'informàtica.
+        \nEls alumnes participen en equips de tres. Durant el concurs, tenen 4 hores per resoldre el màxim nombre possible de problemes, que solen ser entre 8 i 12. Han de programar les seves sol·lucions en C, C++ o Java.</string>
+    <string name="programame_paragraf2">Durant el concurs, cada equip només té un ordinador, cosa que obliga als estudiants a col·laborar i administrar correctament el temps, a més d\'analitzar els problemes abans de començar a escrirue\'ls.
+        \nMentre dura la prova, els equips no poden tenir cap contacte amb l\'exterior, i no poden fer servir cap tipus de material, a excepció d\'un dossier de no més de 10 pàgines que portin ells mateixos, i que és revisat pels encarregats per tal d\'evitar possibles trampes.
+        \nA mesura que van resolent problemes, van rebent una série de globus, corresponents als colors dels problemes resolts, a més de que la seva posició s\'actualitza en el marcador. No obstant, durant l\'última hora es congela el marcador i ja no es dónen globus, per tal de mantenir els guanyadors en secret fins a l\'entrega de premis.</string>
+    <string name="programame_paragraf3">El concurs consta de dues fases. Primer es celebren múltiples concursos Regionals en diferents seus d\'Espanya, en els quals participen els alumnes dels instituts de les respectives zones. Els millors equips de cada regió es classifiquen pel concurs Nacional, que té lloc al Juny.
+        \n\nCal afegir, que l\'equip de l\'Institut Bosc de la Coma d\'Olot, està classificat a la final per segon any consecutiu, i té moltes possibilitats de guanyar.</string>
 
 </resources>

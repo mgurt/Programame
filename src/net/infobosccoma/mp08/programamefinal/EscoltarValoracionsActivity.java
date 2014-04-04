@@ -1,18 +1,25 @@
 package net.infobosccoma.mp08.programamefinal;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class EscoltarValoracionsActivity extends Activity {
+public class EscoltarValoracionsActivity extends Activity implements
+		OnItemClickListener {
 
 	private ListView llistaValoracions;
+	private MediaPlayer mediaPlayer;
+	private ArrayList<String> valoracions;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +31,17 @@ public class EscoltarValoracionsActivity extends Activity {
 	}
 
 	private void initComponents() {
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		llistaValoracions = (ListView) findViewById(R.id.llistaValoracions);
-		
-		if(teEmmagatzamamentExtern()){
-			ArrayList<String> valoracions = obtenirValoracions();
-			ValoracionsAdapter adapter = new ValoracionsAdapter(this, new String[] {});
+
+		if (teEmmagatzamamentExtern()) {
+			valoracions = obtenirValoracions();
+			ValoracionsAdapter adapter = new ValoracionsAdapter(this,
+					valoracions);
 			llistaValoracions.setAdapter(adapter);
 		} else {
-			Toast.makeText(this, "No hi ha emmagatzamament extern", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "No hi ha emmagatzamament extern",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -40,8 +50,10 @@ public class EscoltarValoracionsActivity extends Activity {
 		File valStorage = new File(Environment.getExternalStorageDirectory(),
 				"Programame");
 		File[] arxius = valStorage.listFiles();
-		System.out.println(Arrays.toString(arxius));
-		return null;
+		for (int i = 0; i < arxius.length; i++) {
+			valoracions.add(arxius[i].getAbsolutePath());
+		}
+		return valoracions;
 	}
 
 	private boolean teEmmagatzamamentExtern() {
@@ -60,6 +72,32 @@ public class EscoltarValoracionsActivity extends Activity {
 		}
 
 		return resp;
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+		reproduirSo(valoracions.get(position));
+
+	}
+
+	private void reproduirSo(String valoracio) {
+		try {
+			if(mediaPlayer.isPlaying()){
+				mediaPlayer.stop();
+				mediaPlayer.release();
+			}
+			mediaPlayer.setDataSource(valoracio);
+			mediaPlayer.prepare();
+			mediaPlayer.start();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

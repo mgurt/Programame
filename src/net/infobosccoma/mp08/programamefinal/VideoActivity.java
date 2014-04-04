@@ -40,7 +40,7 @@ public class VideoActivity extends Activity {
 			res = R.raw.programame2014;
 		}
 		
-		Uri path = Uri.parse("android.resource://net.infobosccoma.mp08.programame/" + res);
+		Uri path = Uri.parse("android.resource://net.infobosccoma.mp08.programamefinal/" + res);
 		videoView.setVideoURI(path);
 		videoView.start();
 		mediaController.show();

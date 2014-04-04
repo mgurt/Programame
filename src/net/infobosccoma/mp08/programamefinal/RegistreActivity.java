@@ -11,7 +11,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -92,7 +91,8 @@ public class RegistreActivity extends Activity implements OnClickListener{
 	private void iniciarMenu() {
 		Intent it = new Intent(this, MenuIconic.class);
 		it.putExtra("USER", usuariVisita);
-		startActivity(it);		
+		startActivity(it);	
+		finish();
 	}
 
 	/**
