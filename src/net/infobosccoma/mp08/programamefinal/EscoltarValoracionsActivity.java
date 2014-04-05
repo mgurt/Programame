@@ -76,16 +76,18 @@ public class EscoltarValoracionsActivity extends Activity implements
 
 	@Override
 	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
-		reproduirSo(valoracions.get(position));
-
+		reproduirSo(valoracions.get(position), position);
 	}
 
-	private void reproduirSo(String valoracio) {
+	private void reproduirSo(String valoracio, int position) {
 		try {
+			// Si està sonant, alliberar el recurs anterior
 			if(mediaPlayer.isPlaying()){
 				mediaPlayer.stop();
 				mediaPlayer.release();
 			}
+			
+			// Obtenir valoracio i reproduir-la
 			mediaPlayer.setDataSource(valoracio);
 			mediaPlayer.prepare();
 			mediaPlayer.start();

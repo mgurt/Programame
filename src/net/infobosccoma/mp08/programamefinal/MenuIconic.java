@@ -15,7 +15,7 @@ public class MenuIconic extends Activity implements OnClickListener {
 	// l'objecte amb el qual es fa la reproducci� del fitxer
 	private MediaPlayer mediaPlayer;
 	private boolean volum;
-	private ImageButton btnArticle, btnVideo, btnValor, btnVeuVar;
+	private ImageButton btnArticle, btnVideo, btnValor, btnVeuVar, btnGaleria;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,8 @@ public class MenuIconic extends Activity implements OnClickListener {
 		btnValor.setOnClickListener(this);
 		btnVeuVar = (ImageButton) findViewById(R.id.imgVeuVar);
 		btnVeuVar.setOnClickListener(this);
+		btnGaleria = (ImageButton) findViewById(R.id.imgGaleria);
+		btnGaleria.setOnClickListener(this);
 
 		encendreSo();
 		volum = true;
@@ -101,6 +103,9 @@ public class MenuIconic extends Activity implements OnClickListener {
 			break;
 		case (R.id.imgVeuVar):
 			startActivity(new Intent(this,EscoltarValoracionsActivity.class));
+			break;
+		case (R.id.imgGaleria):
+			startActivity(new Intent(this,GaleriaActivity.class));
 			break;
 		default:
 			break;

@@ -25,5 +25,9 @@
         \nA mesura que van resolent problemes, van rebent una série de globus, corresponents als colors dels problemes resolts, a més de que la seva posició s\'actualitza en el marcador. No obstant, durant l\'última hora es congela el marcador i ja no es dónen globus, per tal de mantenir els guanyadors en secret fins a l\'entrega de premis.</string>
     <string name="programame_paragraf3">El concurs consta de dues fases. Primer es celebren múltiples concursos Regionals en diferents seus d\'Espanya, en els quals participen els alumnes dels instituts de les respectives zones. Els millors equips de cada regió es classifiquen pel concurs Nacional, que té lloc al Juny.
         \n\nCal afegir, que l\'equip de l\'Institut Bosc de la Coma d\'Olot, està classificat a la final per segon any consecutiu, i té moltes possibilitats de guanyar.</string>
+    <string name="title_activity_galeria">GaleriaActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="galeria">Galeria d\'imatges</string>
+    <string name="title_activity_imatge">ImatgeActivity</string>
 
 </resources>
