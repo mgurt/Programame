@@ -21,7 +21,7 @@ public class MenuIconic extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_iconic);
-		
+
 		btnArticle = (ImageButton) findViewById(R.id.imgArticle);
 		btnArticle.setOnClickListener(this);
 		btnVideo = (ImageButton) findViewById(R.id.imgVideo);
@@ -71,12 +71,12 @@ public class MenuIconic extends Activity implements OnClickListener {
 		mediaPlayer.release();
 		mediaPlayer = null;
 	}
-
+	
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		if (mediaPlayer != null) {
-			mediaPlayer.release();
+		if(volum){
+			aturarSo();
 		}
 	}
 
@@ -85,7 +85,7 @@ public class MenuIconic extends Activity implements OnClickListener {
 		switch (v.getId()) {
 
 		case (R.id.imgArticle):
-			startActivity(new Intent(this,ArticleActivity.class));
+			startActivity(new Intent(this, ArticleActivity.class));
 			break;
 		case (R.id.imgVideo):
 			if (volum) {
@@ -102,10 +102,18 @@ public class MenuIconic extends Activity implements OnClickListener {
 			startActivity(new Intent(this, ValoracioActivity.class));
 			break;
 		case (R.id.imgVeuVar):
-			startActivity(new Intent(this,EscoltarValoracionsActivity.class));
+			if (volum) {
+				volum = false;
+				aturarSo();
+			}
+			startActivity(new Intent(this, EscoltarValoracionsActivity.class));
 			break;
 		case (R.id.imgGaleria):
-			startActivity(new Intent(this,GaleriaActivity.class));
+			if (volum) {
+				volum = false;
+				aturarSo();
+			}
+			startActivity(new Intent(this, GaleriaActivity.class));
 			break;
 		default:
 			break;
@@ -113,12 +121,14 @@ public class MenuIconic extends Activity implements OnClickListener {
 		}
 
 	}
-	
+
 	@Override
 	protected void onResume() {
 		super.onResume();
-		volum = true;
-		encendreSo();
+		if (!volum) {
+			volum = true;
+			encendreSo();
+		}
 	}
 
 }
